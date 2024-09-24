@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerLives : MonoBehaviour
 {
     public int lives = 3;
     public Image[] livesUI;
     public GameObject explosionPrefab;
+    public GameObject gameOverPanel;
+
+    public PointManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -42,6 +46,9 @@ public class PlayerLives : MonoBehaviour
             if(lives <= 0)
             {
                 Destroy(gameObject);
+                Time.timeScale = 0;
+                gameOverPanel.SetActive(true);
+                scoreManager.HighScoreUpdate();
             }
         }
     }
@@ -67,6 +74,9 @@ public class PlayerLives : MonoBehaviour
             if (lives <= 0)
             {
                 Destroy(gameObject);
+                Time.timeScale = 0;
+                gameOverPanel.SetActive(true);
+                scoreManager.HighScoreUpdate();
             }
         }
     }
