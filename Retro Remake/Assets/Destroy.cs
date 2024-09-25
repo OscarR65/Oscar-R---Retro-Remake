@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class Destroy : MonoBehaviour
 {
+    public float Destroytime = 2;
+    public GameObject Breakable;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +17,8 @@ public class SceneLoader : MonoBehaviour
     {
         
     }
-
-    public void LoadLevel(string SceneName)
+    private void SetDestroyTime()
     {
-        SceneManager.LoadScene(SceneName);
-        Time.timeScale = 1;
+        Destroy(gameObject, Destroytime);
     }
-
- 
-    
 }

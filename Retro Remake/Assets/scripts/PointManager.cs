@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using TMPro;
 
 public class PointManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class PointManager : MonoBehaviour
 
     public TMP_Text finalScoreText;
     public TMP_Text highScoreText;
+
+    public int MaxScore;
+    public GameObject Levelchange;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,11 @@ public class PointManager : MonoBehaviour
     {
         score += points;
         scoreText.text = "Score: " + score;
+        if(score >= MaxScore)
+        {
+            Time.timeScale = 0;
+            Levelchange.SetActive(true);
+        }
     }
 
 

@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float moveSpeed;
     public GameObject explosionPrefab;
     private PointManager pointManager;
+    public float explosionTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,17 +24,22 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             pointManager.UpdateScore(50);
             Destroy(gameObject);
+            Destroy(explosion, explosionTime);
         }
-
-        if(collision.gameObject.tag == "Boundary")
+        if (collision.gameObject.tag == "Boundary")
         {
             Destroy(gameObject);
         }
+         
+        
+
     }
+
+
 }
