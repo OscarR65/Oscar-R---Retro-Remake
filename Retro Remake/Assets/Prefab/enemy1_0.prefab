@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &2730136615358748350
 SpriteRenderer:
@@ -147,5 +147,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyProjectile: {fileID: 4975058959842485273, guid: 9a6434e6c2d61304aadeb4ad913646ae, type: 3}
   spawnTimer: 0
-  spawnMax: 8
+  spawnMax: 12
   spawnMin: 2

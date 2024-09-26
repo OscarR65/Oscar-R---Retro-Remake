@@ -12,6 +12,11 @@ public class PlayerLives : MonoBehaviour
     public GameObject gameOverPanel;
 
     public PointManager scoreManager;
+    public float explosionTime = 3f;
+
+    public float maxIFrames;
+    private float iFrameTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +27,10 @@ public class PlayerLives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(iFrameTime > 0)
+        {
+            iFrameTime -= Time.deltaTime;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +38,8 @@ public class PlayerLives : MonoBehaviour
         if(collision.collider.gameObject.tag == "Enemy")
         {
             Destroy(collision.collider.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, explosionTime);
             lives -= 1;
             for(int i = 0; i < livesUI.Length; i++)
             {
@@ -57,8 +66,16 @@ public class PlayerLives : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy Projectile")
         {
+            if (iFrameTime > 0)
+            {
+                return;
+            }
+
+            iFrameTime = maxIFrames;
+
             Destroy(collision.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, explosionTime);
             lives -= 1;
             for (int i = 0; i < livesUI.Length; i++)
             {
