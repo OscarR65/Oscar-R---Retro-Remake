@@ -5,7 +5,8 @@ using UnityEngine;
 public class ProjectileShoot : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public float shootTimer;
+    private float shootTimer;
+    public float maxShootTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class ProjectileShoot : MonoBehaviour
         {
             
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            shootTimer = .5f;
+            shootTimer = maxShootTimer;
         }
         shootTimer -= Time.deltaTime;
 

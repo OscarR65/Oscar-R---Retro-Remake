@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class ShipMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
             moveSpeed *= -1;
+        }
+
+        if(transform.position.y < -5)
+        {
+            Destroy(gameObject);
         }
     }
 }
