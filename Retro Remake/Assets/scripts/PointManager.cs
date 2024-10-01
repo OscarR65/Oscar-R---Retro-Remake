@@ -12,8 +12,9 @@ public class PointManager : MonoBehaviour
     public TMP_Text finalScoreText;
     public TMP_Text highScoreText;
 
-    public int MaxScore;
-    public GameObject Levelchange;
+    public GameObject levelChange;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,20 @@ public class PointManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    private void Update()
+    {
+        if(ShipSpawner.enemiesLeft == 0)
+        {
+            Time.timeScale = 0;
+            levelChange.SetActive(true);
+        }
+    }
+
     public void UpdateScore(int points)
     {
         score += points;
         scoreText.text = "Score: " + score;
-        if(score >= MaxScore)
-        {
-            Time.timeScale = 0;
-            Levelchange.SetActive(true);
-        }
+   
     }
 
 

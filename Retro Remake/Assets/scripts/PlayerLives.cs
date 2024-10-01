@@ -41,6 +41,7 @@ public class PlayerLives : MonoBehaviour
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, explosionTime);
             lives -= 1;
+            ShipSpawner.enemiesLeft--;
             for(int i = 0; i < livesUI.Length; i++)
             {
                 if(i < lives)

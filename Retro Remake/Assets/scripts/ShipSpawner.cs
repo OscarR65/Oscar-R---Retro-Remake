@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShipSpawner : MonoBehaviour
@@ -8,6 +9,7 @@ public class ShipSpawner : MonoBehaviour
     private float spawnTime;
     public float maxSpawntime;
     public int maxSpawnAmount;
+    public static int enemiesLeft;
 
 
     // Start is called before the first frame update
@@ -27,9 +29,10 @@ public class ShipSpawner : MonoBehaviour
         
         if (spawnTime <= 0 && maxSpawnAmount > 0)
         {
-            Instantiate(Ship, transform.position, Quaternion.identity);
+            GameObject newShip = Instantiate(Ship, transform.position, Quaternion.identity);
             maxSpawnAmount -= 1;
             spawnTime = maxSpawntime;
+            
         }
 
 

@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  enemyCount: 18
 --- !u!61 &1724665200721379134
 BoxCollider2D:
   m_ObjectHideFlags: 0

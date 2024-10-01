@@ -6,11 +6,12 @@ using UnityEngine.UIElements;
 public class ShipMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public int enemyCount;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        ShipSpawner.enemiesLeft += enemyCount;
     }
 
     // Update is called once per frame

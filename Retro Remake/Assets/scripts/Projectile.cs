@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
             pointManager.UpdateScore(50);
             Destroy(gameObject);
             Destroy(explosion, explosionTime);
+            ShipSpawner.enemiesLeft--;
         }
         if (collision.gameObject.tag == "Boundary")
         {
