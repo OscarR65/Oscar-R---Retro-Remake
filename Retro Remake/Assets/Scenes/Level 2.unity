@@ -7300,7 +7300,7 @@ PrefabInstance:
       objectReference: {fileID: 5203438609328977007, guid: 9600e7a62f1d7184fbac35cd4bed0cc1, type: 3}
     - target: {fileID: 672684577938308896, guid: 5d4c3614ad05d674cb2d9d70c8c7f9d4, type: 3}
       propertyPath: maxSpawntime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 672684577938308897, guid: 5d4c3614ad05d674cb2d9d70c8c7f9d4, type: 3}
       propertyPath: m_Name
