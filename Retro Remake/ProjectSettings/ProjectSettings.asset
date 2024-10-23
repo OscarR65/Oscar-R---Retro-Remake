@@ -733,11 +733,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: fd2fe0c2-fb85-403b-814a-529e228c2698
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Retro Remake
+  organizationId: oscarr1
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
